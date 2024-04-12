@@ -23,12 +23,12 @@ public class Pessoa {
 	private UUID id = UUID.randomUUID();
 
 	@Column(name = "nome")
-	@Size(min = 1, max = 100)
+	@Size(max = 100)
 	@NotNull
 	private String nome;
 
 	@Column(unique = true, name = "apelido")
-	@Size(min = 1, max = 32)
+	@Size(max = 32)
 	@NotNull
 	private String apelido;
 
