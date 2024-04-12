@@ -45,6 +45,12 @@ public class Pessoa {
 		if (nome == null || apelido == null || nascimento == null) {
 			throw new UnprocessableEntityException();
 		}
+		if (nome.isBlank() || nome.isEmpty() || nome.length() > 100) {
+			throw new UnprocessableEntityException();
+		}
+		if (apelido.isBlank() || apelido.isEmpty() || apelido.length() > 32) {
+			throw new UnprocessableEntityException();
+		}
 		if (isNumeric(nome) || isNumeric(apelido)) {
 			throw new BadRequestException();
 		}
