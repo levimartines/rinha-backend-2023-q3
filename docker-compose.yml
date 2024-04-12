@@ -1,12 +1,62 @@
-version: '3.8'
+version: '3.9'
 
 services:
+  api1:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile
+    hostname: api1
+    network_mode: "host"
+    environment:
+      - SERVER_PORT=8080
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '512MB'
+
+  api2:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile
+    hostname: api2
+    network_mode: "host"
+    environment:
+      - SERVER_PORT=8081
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '512MB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    deploy:
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: '512MB'
+    network_mode: "host"
+
   db:
     image: postgres:16.2
     restart: always
+    network_mode: "host"
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
-    ports:
-      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: '1.5GB'
