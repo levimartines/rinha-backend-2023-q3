@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-system-user
+      author: levi
+      changes:
+        -  sqlFile:
+             path: ./db/changelog/01_.sql
+             stripComments: true
