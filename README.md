@@ -14,8 +14,9 @@ https://github.com/zanfranceschi/rinha-de-backend-2023-q3
 
 ### Stress Test
 ```bash
-docker-compose up -d --build --force-recreate
-sleep 30
+./gradlew clean bootJar &&
+docker-compose up -d &&
+sleep 30 &&
 ./run-gatling.sh
 ```
 
