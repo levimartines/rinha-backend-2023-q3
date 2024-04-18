@@ -30,14 +30,9 @@ public class Controller {
 	}
 
 	@GetMapping
-	public ResponseEntity<?> findByTerm(@RequestParam("t") String t) {
+	public ResponseEntity<?> findByTerm(@RequestParam(required = false) String t) {
 		var p = service.findByTerm(t);
 		return ResponseEntity.ok(p.getContent());
-	}
-
-	@GetMapping("/contagem-pessoas")
-	public ResponseEntity<?> count() {
-		return ResponseEntity.ok(service.count());
 	}
 
 }

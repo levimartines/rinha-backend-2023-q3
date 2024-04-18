@@ -1,8 +1,0 @@
-CREATE TABLE PESSOAS(
-    ID         uuid               NOT NULL,
-    APELIDO    VARCHAR(32) UNIQUE NOT NULL,
-    NASCIMENTO VARCHAR(12)        NOT NULL,
-    NOME       VARCHAR(100)       NOT NULL,
-    STACK      VARCHAR(255),
-    PRIMARY KEY (ID)
-);

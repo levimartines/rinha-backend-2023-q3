@@ -12,6 +12,6 @@ import java.util.UUID;
 @Component
 public interface Repository extends JpaRepository<Pessoa, UUID> {
 
-	@Query("SELECT p FROM Pessoa p WHERE p.apelido LIKE :t OR p.nome LIKE :t OR cast(p.stack as string) LIKE %:t%")
+	@Query("SELECT p FROM Pessoa p WHERE p.busca LIKE '%' || :t || '%'")
 	Page<Pessoa> searchAllByTerm(String t, Pageable p);
 }

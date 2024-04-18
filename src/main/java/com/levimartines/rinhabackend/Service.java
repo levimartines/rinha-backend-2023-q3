@@ -25,8 +25,10 @@ public class Service {
 	}
 
 	public Page<Pessoa> findByTerm(String t) {
-		var p = PageRequest.of(0, 50);
-		return repository.searchAllByTerm(t, p);
+		if (t == null || t.isEmpty()) {
+			throw new BadRequestException();
+		}
+		return repository.searchAllByTerm(t, PageRequest.of(0, 50));
 	}
 
 	public long count() {

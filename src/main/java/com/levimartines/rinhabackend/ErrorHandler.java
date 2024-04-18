@@ -24,4 +24,9 @@ public class ErrorHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
 
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<?> notFound() {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
+
 }

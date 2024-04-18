@@ -1,12 +1,16 @@
 package com.levimartines.rinhabackend;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Generated;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
@@ -14,9 +18,9 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "pessoas")
-@Data
+@Getter
 @NoArgsConstructor
-public class Pessoa {
+public class Pessoa implements Serializable {
 
 	@Id
 	@Column(name = "id")
@@ -40,6 +44,11 @@ public class Pessoa {
 	@Convert(converter = StringListConverter.class)
 	@Column(name = "stack")
 	private List<String> stack;
+
+	@Column(name = "busca_trgm")
+	@Generated
+	@JsonIgnore
+	public String busca;
 
 	public void valid() {
 		if (nome == null || apelido == null || nascimento == null) {

@@ -34,7 +34,7 @@ services:
           memory: '0.5GB'
 
   nginx:
-    image: nginx:latest
+    image: nginx:1.25.5-alpine
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
@@ -48,9 +48,12 @@ services:
     network_mode: "host"
 
   db:
-    image: postgres:16.2
+    image: postgres:16.2-alpine3.19
     restart: always
-    command: postgres -c 'max_connections=450'
+    volumes:
+      - ./ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf # Mapeie o arquivo de configuração
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf # Use o caminho correto no comando
     network_mode: "host"
     environment:
       POSTGRES_PASSWORD: postgres
