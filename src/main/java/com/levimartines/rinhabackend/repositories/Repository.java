@@ -1,6 +1,7 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.repositories;
 
 
+import com.levimartines.rinhabackend.entities.Pessoa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

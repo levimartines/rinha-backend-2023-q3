@@ -1,4 +1,4 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.configs;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

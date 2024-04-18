@@ -1,11 +1,13 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.levimartines.rinhabackend.exceptions.BadRequestException;
+import com.levimartines.rinhabackend.converters.StringListConverter;
+import com.levimartines.rinhabackend.exceptions.UnprocessableEntityException;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Generated;

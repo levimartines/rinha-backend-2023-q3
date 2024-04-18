@@ -1,4 +1,4 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.converters;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

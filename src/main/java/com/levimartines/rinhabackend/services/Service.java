@@ -1,5 +1,8 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.services;
 
+import com.levimartines.rinhabackend.entities.Pessoa;
+import com.levimartines.rinhabackend.exceptions.BadRequestException;
+import com.levimartines.rinhabackend.repositories.Repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

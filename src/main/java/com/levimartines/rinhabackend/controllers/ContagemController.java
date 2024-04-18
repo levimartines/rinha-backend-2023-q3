@@ -1,5 +1,6 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.controllers;
 
+import com.levimartines.rinhabackend.services.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

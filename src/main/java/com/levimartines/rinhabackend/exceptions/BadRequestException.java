@@ -1,4 +1,4 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.exceptions;
 
 public class BadRequestException extends RuntimeException {
 

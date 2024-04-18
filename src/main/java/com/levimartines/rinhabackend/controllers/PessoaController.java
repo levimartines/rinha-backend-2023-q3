@@ -1,5 +1,7 @@
-package com.levimartines.rinhabackend;
+package com.levimartines.rinhabackend.controllers;
 
+import com.levimartines.rinhabackend.services.Service;
+import com.levimartines.rinhabackend.entities.Pessoa;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +11,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/pessoas")
 @RequiredArgsConstructor
-public class Controller {
+public class PessoaController {
 
 	private final Service service;
 
